@@ -25,12 +25,12 @@ if ((($H >= $ON)) && (($H < $OFFH))) || ((($H == $OFFH)) && (($M < $OFFMIN))) ; 
      then
         echo "running" >> /dev/null
      else
-        omxplayer /home/pi/engine_sounds.wav &
+        omxplayer /home/pi/engine_sounds.mp3 &
      fi
 
      #echo "time condition met. time is $H:$M, On is set to $ON, Off to $OFFH:$OFFMIN"
 
-     sleep 3s
+     sleep 1s
 
 else 
      if ps ax | grep -v grep | grep "$SERVICE" > /dev/null

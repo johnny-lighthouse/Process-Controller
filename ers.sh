@@ -9,8 +9,8 @@ OFFMIN=30
 UTCOFFSET=5
 
 #Adjust for UTC
-ON=$(($LON + $UTCOFFSET))
-OFFH=$(($LOFFHOUR + $UTCOFFSET))
+ON=$((10#$LON + 10#$UTCOFFSET))
+OFFH=$((10#$LOFFHOUR + 10#$UTCOFFSET))
  
 SERVICE='omxplayer'
 
@@ -19,13 +19,13 @@ while true; do
 H="$(date +%H)"
 M="$(date +%M)"
 
-if ((($H >= $ON)) && (($H < $OFFH))) || ((($H == $OFFH)) && (($M < $OFFMIN))) ; then  
+if (((10#$H >= 10#$ON)) && ((10#$H < 10#$OFFH))) || (((10#$H == 10#$OFFH)) && ((10#$M < 10#$OFFMIN))) ; then  
 
      if ps ax | grep -v grep | grep "$SERVICE" > /dev/null
      then
         echo "running" >> /dev/null
      else
-        omxplayer /home/pi/engine_sounds.mp3 &
+        $SERVICE /home/pi/engine_sounds.mp3 &
      fi
 
      #echo "time condition met. time is $H:$M, On is set to $ON, Off to $OFFH:$OFFMIN"

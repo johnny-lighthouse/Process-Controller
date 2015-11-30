@@ -40,7 +40,7 @@ else
 
      #echo "time condition NOT met. time is $H:$M, On is set to $ON, Off to $OFFH:$OFFMIN" 
 
-     sleep 300s
+     sleep 3s
 
 fi
 

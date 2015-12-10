@@ -3,16 +3,19 @@ play a sound file continuously during specified interval, subject to override
 
 This is meant to be run on a raspberry pi to start and stop background sounds.
 
-##sp.py
+###sp.py
 uses supervisord interface to control media player according to defined time conditions.  reads override status from a local text file.
 
-##ooa.py
+###ooa.py
 reads hardware override switch from RPi gpio pins and controls feedback LED's through same.  On switch change only, uses python-paramiko library to write override status file via ssh.
 
 ###supervisord.conf
 defines html interface and media player run conditons.
 
-###Deployment notes:
+###sound_mode.txt
+holds override status from remote, values are: on, off, auto
+
+##Deployment notes:
 
 * ensure supervisor package installed
 * copy .config to /etc/supervisor/supervisord.config

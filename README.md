@@ -10,7 +10,7 @@ uses supervisord interface to control media player according to defined time con
 reads hardware override switch from RPi gpio pins and controls feedback LED's through same.  On switch change only, uses python-paramiko library to write override status file via ssh.
 
 ###supervisord.conf
-defines html interface and media player run conditons.  autostart=off keeps media from running on startup.  autorestart=true restarts player if track ends or player crashes.
+defines html interface and media player run conditons.
 
 ###Deployment notes:
 

@@ -32,10 +32,10 @@ io.setup(onSwitch, io.IN)
 io.setup(offSwitch, io.IN)
 
 #paramiko ssh config
-host = 'rpi06'
+host = ''
 port = 22
-username = 'pi'
-password = 'raspberry'
+username = ''
+password = ''
 s = paramiko.SSHClient()
 s.load_system_host_keys('/root/.ssh/known_hosts')
 

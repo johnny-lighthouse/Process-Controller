@@ -23,6 +23,7 @@ offSwitch = 13
 # gpio pins are normally on when switch NOT selected
 # pin state false means that that switch position has been selected
 
+#sleep to give network time to com eup on boot
 time.sleep( 30 )
 
 # RPi gpio pin config

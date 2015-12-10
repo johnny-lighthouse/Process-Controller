@@ -37,3 +37,15 @@ holds override status from remote, values are: on, off, auto
 * ensure +x permissions
 * adjust host, user, and password values in ooa.py
 * as root add crontab line @reboot /home/pi/ooa.py &  or appropriate
+
+##To DO
+* add exception handling
+ * network down
+* write test suite
+* revise hardware switch circuit
+* handle timezones and dst
+* move script control from crontab to supervisord
+* rewrite as monolithic process on remote machine controling supervisord via http
+* try with multiple remotes?
+* try with alternate media player?
+* add volume control, remote volume control?

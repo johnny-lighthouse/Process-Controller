@@ -28,7 +28,7 @@ holds override status from remote, values are: on, off, auto
 * ensure sshd ecdsa host key turned off in /etc/ssh/sshd_config
 
 ####for remote switch:
-* install ahrdware switch
+* install hardware switch
 * ensure python-paramiko package installed
 * ooa.py must run as root
 * ensure no ecdsa keys in /root/.ssh/known_hosts, maybe delete

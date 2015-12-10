@@ -4,7 +4,7 @@ play a sound file continuously during specified interval, subject to override
 This is meant to be run on a raspberry pi to start and stop background sounds.
 
 ##sp.py
-uses supervisord interface to control media player.  reads override status from a local text file.
+uses supervisord interface to control media player according to defined time conditions.  reads override status from a local text file.
 
 ##ooa.py
 reads hardware override switch from RPi gpio pins and controls feedback LED's through same.  On switch change only, uses python-paramiko library to write override status file via ssh.

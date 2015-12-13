@@ -41,11 +41,17 @@ holds override status from remote, values are: on, off, auto
 ##To DO
 * add exception handling
  * network down
+ * file missing or unexpected content
 * write test suite
 * revise hardware switch circuit
 * handle timezones and dst
 * move script control from crontab to supervisord
-* rewrite as monolithic process on remote machine controling supervisord via http
-* try with multiple remotes?
+* rewrite as monolithic process on remote machine controling supervisord via http??
+* work better with multiple remotes?
 * try with alternate media player?
 * add volume control, remote volume control?
+* feedback to user at remote
+* logging
+* external config file read on everyloop
+* set all LEDs when setting, maybe on every loop
+* 

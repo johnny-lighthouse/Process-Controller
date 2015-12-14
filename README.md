@@ -1,10 +1,10 @@
-# background-sound-timer
-play a sound file continuously during specified interval, subject to override
+# Process-Controller
+Run an arbitrary process during specified interval or according to hardware override device
 
-This is meant to be run on a raspberry pi to start and stop background sounds.
+This is meant to be run on a raspberry pi to start and stop a media player
 
 ###sp.py
-uses supervisord interface to control media player according to defined time conditions.  reads override status from a local text file.
+uses supervisord interface to control media player process according to defined time conditions.  reads override status from a local text file.
 
 ###ooa.py
 reads hardware override switch from RPi gpio pins and controls feedback LED's through same.  On switch change only, uses python-paramiko library to write override status file via ssh.
@@ -41,11 +41,20 @@ holds override status from remote, values are: on, off, auto
 ##To DO
 * add exception handling
  * network down
+ * file missing or unexpected content
 * write test suite
 * revise hardware switch circuit
 * handle timezones and dst
 * move script control from crontab to supervisord
-* rewrite as monolithic process on remote machine controling supervisord via http
-* try with multiple remotes?
+* rewrite as monolithic process on remote machine controling supervisord via http??
+* work better with multiple remotes?
 * try with alternate media player?
 * add volume control, remote volume control?
+* feedback to user at remote
+* logging
+* external config file read on everyloop
+* set all LEDs when setting, maybe on every loop
+
+### nice to have
+* generalize time condition mechanism to accomodate arbitrarily complex scedules?
+* accomodate an arbitray number of processes with different schedules?

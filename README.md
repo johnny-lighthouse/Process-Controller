@@ -46,18 +46,16 @@ holds override status from remote, values are: on, off, auto
 * add exception handling
  * network down
  * file missing or unexpected content
-* write test suite
 * revise hardware switch circuit
-* handle timezones and dst
-* rewrite as monolithic process on remote machine controling supervisord via http??
-* work with multiple remotes?
 * try with alternate media player?
 * add volume control, remote volume control?
-* positive feedback to user at remote
 * logging
 * external config file read on everyloop
-* set all LEDs when setting, maybe on every loop
+* write test suite
+* handle timezones and dst
 
 ### nice to have
 * generalize time condition mechanism to accomodate arbitrarily complex scedules?
 * accomodate an arbitray number of processes with different schedules?
+* rewrite as monolithic process on remote machine controling supervisord via http??
+* * work with multiple remotes?

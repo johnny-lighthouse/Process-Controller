@@ -30,9 +30,6 @@ offSwitch = 13
 # gpio pins are normally on when switch NOT selected
 # pin state false means that that switch position has been selected
 
-# sleep until network is up after reboot
-time.sleep( 30 )
-
 # RPi gpio pin config
 io.setup(onLed, io.OUT, initial=True)
 io.setup(offLed, io.OUT, initial=True)

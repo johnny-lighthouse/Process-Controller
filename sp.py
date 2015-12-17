@@ -24,9 +24,6 @@ then = datetime.datetime.now()
 on = then.replace(hour=15, minute=0, second=0, microsecond=0)
 off = then.replace(hour=21, minute=30, second=0, microsecond=0)
 
-#make sure this comes up after networking
-time.sleep( 30 )
-
 #######################################################
 
 while True:

@@ -13,10 +13,10 @@ io.setmode(io.BOARD)
 #io.setwarnings(False)
 
 # Raspberry Pi gpio pin assignmets
-relayControl = 15
+relayPin = 15
 
 # RPi gpio pin config
-io.setup(relayControl, io.OUT, initial=False)
+io.setup(relayPin, io.OUT, initial=False)
 
 # supervisord set up
 server = xmlrpclib.ServerProxy('http://127.0.0.1:9001')
@@ -24,17 +24,20 @@ process = 'mpg123'
 
 #######################################################
 
-def start(process):
-   io.output(relayControl, True)
-   server.supervisor.startProcess(process)
+def start(proc):
+   server.supervisor.startProcess(proc)
 
-def stop(process):
-   io.output(relayControl, False)
-   server.supervisor.stopProcess(process)
-   # output command did not work reliably after stopProcess() for some reason
+def relayOn(pin):
+   io.output(pin, True)
 
-def checkState(process):
-   return server.supervisor.getProcessInfo(process)['statename']
+def stop(proc):
+   server.supervisor.stopProcess(proc)
+
+def relayOff(pin):
+   io.output(pin, False)
+
+def checkState(proc):
+   return server.supervisor.getProcessInfo(proc)['statename']
 
 #######################################################
 
@@ -56,11 +59,13 @@ while True:
          #if not running then start sounds
          if (checkState(process) == 'STOPPED'):
             start(process)
+         relayOn(relayPin)
 
       elif (mode == 'off'):
          #if running then stop sounds
          if (checkState(process) == 'RUNNING'):
             stop(process)
+         relayOff(relayPin)
 
       elif (mode != 'auto'):
          #bad file, run away?
@@ -76,12 +81,13 @@ while True:
             #if not running then start sounds
             if (checkState(process) == 'STOPPED'):
                start(process)
+            relayOn(relayPin)
 
          else:
             #if running then stop sounds
             if (checkState(process) == 'RUNNING'):
                stop(process)
-
+            relayOff(relayPin)
 
       file.close()
       time.sleep( 1 )

@@ -13,7 +13,7 @@ io.setmode(io.BOARD)
 #io.setwarnings(False)
 
 # Raspberry Pi gpio pin assignmets
-relayControl = 11
+relayControl = 15
 
 # RPi gpio pin config
 io.setup(relayControl, io.OUT, initial=False)
@@ -25,12 +25,13 @@ process = 'mpg123'
 #######################################################
 
 def start(process):
-   server.supervisor.startProcess(process)
    io.output(relayControl, True)
+   server.supervisor.startProcess(process)
 
 def stop(process):
-   server.supervisor.stopProcess(process)
    io.output(relayControl, False)
+   server.supervisor.stopProcess(process)
+   # output command did not work reliably after stopProcess() for some reason
 
 def checkState(process):
    return server.supervisor.getProcessInfo(process)['statename']

@@ -59,6 +59,7 @@ while True:
          #if not running then start sounds
          if (checkState(process) == 'STOPPED'):
             start(process)
+            time.sleep(2)
          relayOn(relayPin)
 
       elif (mode == 'off'):

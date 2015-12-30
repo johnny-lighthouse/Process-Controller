@@ -46,13 +46,13 @@ holds override status from remote, values are: on, off, auto
 * add exception handling
  * network down
  * file missing or unexpected content
-* revise hardware switch circuit
-* try with alternate media player?
+* revise hardware switch circuit, @pi & @box
 * add volume control, remote volume control?
 * logging
 * external config file read on everyloop
 * write test suite
 * handle timezones and dst
+* interface with an occupancy indicator, do not run if daylights are not on?
 
 ### nice to have
 * generalize time condition mechanism to accomodate arbitrarily complex scedules?

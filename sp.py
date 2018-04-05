@@ -13,7 +13,7 @@ io.setmode(io.BOARD)
 #io.setwarnings(False)
 
 # Raspberry Pi gpio pin assignmets
-relayPin = 15
+relayPin = 37
 
 # RPi gpio pin config
 io.setup(relayPin, io.OUT, initial=False)
@@ -43,10 +43,13 @@ def checkState(proc):
 
 # times are stated in UTC and are static with no adjustment for savings time
 # local + 5 in est and local + 4 in edt
+#
+# Need to rewrite as a constant offset added to each formula
 
-then = datetime.datetime.now()
-on = then.replace(hour=15, minute=0, second=0, microsecond=0)
-off = then.replace(hour=21, minute=30, second=0, microsecond=0)
+
+ora = datetime.datetime.now()
+on  = ora.replace(hour=15, minute=0, second=0, microsecond=0)
+off = ora.replace(hour=21, minute=30, second=0, microsecond=0)
 
 #######################################################
 
@@ -91,7 +94,7 @@ while True:
             relayOff(relayPin)
 
       file.close()
-      time.sleep( 1 )
+      time.sleep( 5 )
 
    except KeyboardInterrupt:
        break

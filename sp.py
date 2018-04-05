@@ -39,17 +39,23 @@ def relayOff(pin):
 def checkState(proc):
    return server.supervisor.getProcessInfo(proc)['statename']
 
+def setDST(var):
+   if (var == True):
+     Offset = 1
+   else:
+     Offset = 0
+   return Offset
+
 #######################################################
 
 # times are stated in UTC and are static with no adjustment for savings time
 # local + 5 in est and local + 4 in edt
-#
-# Need to rewrite as a constant offset added to each formula
 
+offset = setDST(True)
 
 ora = datetime.datetime.now()
-on  = ora.replace(hour=15, minute=0, second=0, microsecond=0)
-off = ora.replace(hour=21, minute=30, second=0, microsecond=0)
+on  = ora.replace(hour=(15-offset), minute=0, second=0, microsecond=0)
+off = ora.replace(hour=(21-offset), minute=30, second=0, microsecond=0)
 
 #######################################################
 
